@@ -1,0 +1,51 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             String      @id @default(uuid())
+  email          String      @unique
+  password       String
+  name           String?
+  profilePicture String? // URL or base64
+  otpCode        String?
+  otpExpires     DateTime?
+  refreshToken   String?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  recordings     Recording[]
+}
+
+model Recording {
+  id                  String   @id @default(uuid())
+  title               String
+  audioUrl            String // local upload path or cloud storage url
+  durationInSeconds   Int
+  transcript          String
+  summary             String?
+  keyPoints           String?
+  actionItems         String?
+  keyDecisions        String?
+  questionsAndAnswers String?
+  sentiment           String?
+  meetingStats        String?
+  meetingOverview     String?
+  risks               String?
+  deadlines           String?
+  folder              String   @default("General")
+  isFavorite          Boolean  @default(false)
+  wordCount           Int      @default(0)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+
+  @@index([userId])
+  @@index([title])
+}
