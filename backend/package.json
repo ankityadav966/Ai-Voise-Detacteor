@@ -4,7 +4,7 @@
   "description": "Production-ready backend API for Peter Laka AI Meeting Recorder",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy",
