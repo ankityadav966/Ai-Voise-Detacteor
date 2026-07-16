@@ -5,7 +5,7 @@ const SettingsContext = createContext();
 
 export const SettingsProvider = ({ children }) => {
   const [settings, setSettings] = useState({
-    apiUrl: 'http://localhost:9990',
+    apiUrl: 'https://roshan-backend.globalrns.com',
     themeMode: 'dark',
     speechLanguage: 'en-IN',
     useBiometricLock: false,

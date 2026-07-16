@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-
+const dotenv = require("dotenv")
+dotenv.config()
 /**
  * Transcribe local audio file using Deepgram or OpenAI Whisper
  */

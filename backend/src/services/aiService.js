@@ -1,5 +1,6 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-
+const dotenv = require("dotenv")
+dotenv.config()
 /**
  * Call Gemini or OpenAI models to format the raw transcript, correct grammar,
  * translate Hinglish terms, and generate summary, key points, and action items.

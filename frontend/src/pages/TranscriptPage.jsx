@@ -241,7 +241,7 @@ const TranscriptPage = () => {
       }
       setIsDownloading(true);
       const settings = DatabaseHelper.getSettings();
-      const baseUrl = apiClient.defaults.baseURL || settings.apiUrl || 'http://localhost:9990';
+      const baseUrl = apiClient.defaults.baseURL || settings.apiUrl || 'https://roshan-backend.globalrns.com';
       const fileUrl = audioUrl.startsWith('http') ? audioUrl : `${baseUrl}${audioUrl}`;
       const response = await fetch(fileUrl);
       const blob = await response.blob();

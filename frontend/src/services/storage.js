@@ -20,7 +20,7 @@ export const DatabaseHelper = {
    */
   getSettings() {
     const defaults = {
-      apiUrl: 'http://localhost:9990',
+      apiUrl: 'https://roshan-backend.globalrns.com',
       themeMode: 'dark',
       speechLanguage: 'en-IN',
       useBiometricLock: false,
@@ -32,7 +32,7 @@ export const DatabaseHelper = {
         const parsed = JSON.parse(data);
         let updated = false;
         if (parsed.apiUrl === 'http://localhost:5000' || parsed.apiUrl === 'http://localhost:8990') {
-          parsed.apiUrl = 'http://localhost:9990';
+          parsed.apiUrl = 'https://roshan-backend.globalrns.com';
           updated = true;
         }
         if (parsed.speechLanguage === 'en-US') {
