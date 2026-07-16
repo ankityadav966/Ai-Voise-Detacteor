@@ -1,8 +1,6 @@
-FROM node:22-alpine
+FROM node:22-slim
 
 WORKDIR /app
-
-RUN apk add --no-cache openssl1.1-compat
 
 COPY package*.json ./
 
