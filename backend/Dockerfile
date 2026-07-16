@@ -2,15 +2,16 @@ FROM node:22-alpine
 
 WORKDIR /app
 
+RUN apk add --no-cache openssl1.1-compat
+
 COPY package*.json ./
 
 RUN npm install
 
 COPY . .
 
-# Generate Prisma Client
 RUN npx prisma generate
 
-EXPOSE 5000
+EXPOSE 9990
 
 CMD ["npm", "start"]
